@@ -1,0 +1,253 @@
+.meetVideoContainer {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Left: Video Grid */
+.conferenceView {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 12px;
+  padding: 20px;
+  box-sizing: border-box;
+
+  align-content: start;
+}
+
+/* Remote Videos */
+.remoteVideoWrapper video {
+  width: 100%;
+  height: 700px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid #ffffff44;
+}
+
+/* Local floating video */
+.meetUserVideo {
+  position: fixed;
+  bottom: 100px;
+  left: 20px;
+  width: 200px;
+  height: 130px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid #ffffff44;
+  z-index: 999;
+  background: black;
+}
+
+/* Local large video (when many users) */
+.largeLocalVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Right: Chat Panel */
+.chatRoom {
+  width: 320px;
+  background-color: #f0f2f5;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -2px 0 12px rgba(0, 0, 0, 0.2);
+  z-index: 900;
+}
+
+.chatContainer {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+}
+
+.chatContainer h1 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  text-align: center;
+  color: #1a237e;
+}
+
+.chattingDisplay {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  color: black;
+}
+
+.chattingDisplay p {
+  margin: 0;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+.chattingArea {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+/* Bottom control bar */
+.buttonContainers {
+  position: fixed;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 25px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 10px 30px;
+  border-radius: 20px;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.buttonContainers svg {
+  font-size: 2.5rem;
+}
+
+/* Responsive Chat Hiding */
+@media screen and (max-width: 768px) {
+  .chatRoom {
+    display: none;
+  }
+
+  .meetUserVideo {
+    width: 140px;
+    height: 100px;
+    bottom: 80px;
+    left: 10px;
+  }
+
+  .buttonContainers {
+    flex-wrap: wrap;
+    padding: 8px 16px;
+  }
+}
+
+/* Container holding the entire video screen */
+.videoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to bottom, #1e2a38, #1b2c36);
+  /* your dark theme */
+  box-sizing: border-box;
+}
+
+/* The video box (adjusts size based on screen width) */
+.videoContainer {
+  width: 90%;
+  max-width: 600px;
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Video tag inside the container */
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Control buttons wrapper */
+.buttonContainers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 1rem;
+  background-color: rgba(30, 30, 30, 0.7);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+/* Icon button styles (inherited from Material UI) */
+.buttonContainers .MuiIconButton-root {
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .videoContainer {
+    width: 95%;
+    aspect-ratio: 3 / 4;
+  }
+
+  .buttonContainers {
+    gap: 0.6rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .buttonContainers .MuiIconButton-root {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .videoContainer {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+  }
+
+  .buttonContainers {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0.6rem;
+  }
+
+  .buttonContainers .MuiIconButton-root {
+    font-size: 0.9rem;
+  }
+}
+
+/* styles.module.css */
+.chatRoom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chatContainer {
+  background-color: white;
+  width: 90%;
+  max-width: 500px;
+  height: 80%;
+  border-radius: 10px;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}

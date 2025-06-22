@@ -1,0 +1,261 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(to right, #42275a, #734b6d, #f3904f);
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.logo h2 {
+  color: #fcd34d;
+  font-weight: 700;
+  cursor: pointer;
+  /* margin-right: 70rem; */
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;
+  /* Pushes buttons to extreme right */
+}
+
+
+/* Show buttons on large screens */
+.desktop-only {
+  display: flex;
+}
+
+.mobile-only {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+}
+
+.hamburger-icon {
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar {
+  background: linear-gradient(to right, #42275a, #734b6d, #f3904f);
+  padding: 0.75rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Callix logo */
+.navbar-left h2 {
+  color: #fcd34d;
+  font-weight: 700;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* Right side buttons */
+.navbar-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Desktop only buttons */
+.desktop-only {
+  display: flex;
+}
+
+.mobile-only {
+  display: none;
+}
+
+/* Hamburger icon */
+.hamburger {
+  cursor: pointer;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 0.75rem;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .navbar-container {
+    justify-content: space-between;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* src/styles/navbar.css */
+
+.callix-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 12px 24px;
+
+  background: rgba(31, 41, 55, 0.7);
+  /* dark semi-transparent */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  color: white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.callix-navbar:hover {
+  background: rgba(31, 41, 55, 0.85);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+
+.navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-left h2 {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.desktop-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.mobile-hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+/* Mobile Menu Slide Down */
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #1f2937;
+  padding: 10px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .desktop-buttons {
+    display: none;
+  }
+
+  .mobile-hamburger {
+    display: block;
+  }
+}
+
+.button-container-bar {
+  position: absolute;
+  /* Use 'fixed' if you want it independent of parent */
+  bottom: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(31, 41, 55, 0.6);
+  /* translucent dark bg */
+  backdrop-filter: blur(6px);
+  /* optional but elegant */
+  padding: 12px 24px;
+  border-radius: 12px;
+  z-index: 2000;
+  max-width: 90vw;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .button-container-bar {
+    padding: 10px 16px;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .button-container-bar {
+    flex-direction: row;
+    /* padding: 8px 12px; */
+    gap: 0.5rem;
+
+  }
+}
