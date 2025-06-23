@@ -1,3 +1,5 @@
+
+
 import React, { useEffect, useRef, useState } from 'react'
 import io from "socket.io-client";
 import { Badge, IconButton, TextField, Box, Paper, Typography, Tooltip, Snackbar, Alert } from '@mui/material';
@@ -18,7 +20,8 @@ import ChatIcon from '@mui/icons-material/Chat'
 import { useNavigate } from "react-router-dom";
 import { showAlert, useAlert } from "../contexts/AlertContext.jsx"
 
-const server_url = "http://localhost:8000";
+
+const server_url = process.env.server_url;
 var connections = {};
 
 const peerConfigConnections = {

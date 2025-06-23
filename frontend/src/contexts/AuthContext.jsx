@@ -3,11 +3,13 @@ import httpStatus from "http-status";
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 export const AuthContext = createContext({});
 
 const client = axios.create({
-  baseURL: "http://localhost:8000/api/v1/users",
+  baseURL: `${process.env.REACT_APP_API_URL}/users`,
 });
+
 
 export const AuthProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
@@ -15,11 +17,14 @@ export const AuthProvider = ({ children }) => {
 
   const handleRegister = async (name, username, password) => {
     try {
-      const response = await client.post("/register", {
-        name,
-        username,
-        password,
-      });
+      const response = await axios.post(
+  `${process.env.REACT_APP_API_URL}/users/register`,
+  {
+    name,
+    username,
+    password,
+  }
+)
 
       if (response.status === httpStatus.CREATED) {
         return response.data.message;
@@ -31,7 +36,7 @@ export const AuthProvider = ({ children }) => {
 
   const handleLogin = async (username, password) => {
     try {
-      const response = await client.post("/login", {
+      const response = await client.post(`${process.env.REACT_APP_API_URL}/login`, {
         username,
         password,
       });
@@ -56,7 +61,7 @@ export const AuthProvider = ({ children }) => {
 
   const getHistoryOfUser = async () => {
     try {
-      const response = await client.get("/get_all_activity", {
+      const response = await client.get(`${process.env.REACT_APP_API_URL}/get_all_activity`, {
         params: {
           token: localStorage.getItem("token"),
         },
@@ -69,7 +74,7 @@ export const AuthProvider = ({ children }) => {
 
   const addToUserHistory = async (meetingCode) => {
     try {
-      const response = await client.post("/add_to_activity", {
+      const response = await client.post(`${process.env.REACT_APP_API_URL}/add_to_activity`, {
         token: localStorage.getItem("token"),
         meeting_code: meetingCode,
       });
@@ -81,7 +86,7 @@ export const AuthProvider = ({ children }) => {
 
   const clearHistoryOfUser = async () => {
     try {
-      const response = await client.delete("/clear_activity", {
+      const response = await client.delete(`${process.env.REACT_APP_API_URL}/clear_activity`, {
         data: { token: localStorage.getItem("token") },
       });
       return response;
@@ -102,7 +107,7 @@ export const AuthProvider = ({ children }) => {
       const token = localStorage.getItem("token");
       if (token) {
         try {
-          const response = await client.get("/get_user_from_token", {
+          const response = await client.get(`${process.env.REACT_APP_API_URL}/get_user_from_token`, {
             params: { token },
           });
           setUserData(response.data.user);
