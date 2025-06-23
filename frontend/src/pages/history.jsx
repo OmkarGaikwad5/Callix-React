@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
 import {
   Card,
   CardContent,
@@ -16,7 +15,6 @@ import { useAlert } from '../contexts/AlertContext'; // ✅ Correct import
 export default function History() {
   const { getHistoryOfUser, clearHistoryOfUser } = useContext(AuthContext);
   const [meetings, setMeetings] = useState([]);
-  const routeTo = useNavigate();
   const { showAlert } = useAlert(); // ✅ Use alert hook
 
   useEffect(() => {

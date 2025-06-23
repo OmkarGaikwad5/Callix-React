@@ -1,5 +1,5 @@
 // src/pages/LandingPage.jsx
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import 'bootstrap/dist/css/bootstrap.min.css'; // make sure bootstrap is imported
@@ -10,7 +10,6 @@ import { AuthContext } from '../contexts/AuthContext';
 export default function LandingPage() {
   const navigate = useNavigate();
   const { userData } = useContext(AuthContext);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleGetStarted = () => {
     navigate(userData ? "/" : "/auth");

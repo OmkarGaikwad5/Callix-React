@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Typography, Grid, Card, CardContent, Box } from '@mui/material';
 import { motion } from 'framer-motion';
-import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import SecurityIcon from '@mui/icons-material/Security';
 import DevicesIcon from '@mui/icons-material/Devices';
 import HistoryEduIcon from '@mui/icons-material/HistoryEdu';

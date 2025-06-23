@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
 import '../styles/navbar.css';
 
-import { Box, Button } from '@mui/material';
+import {  Button } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import HistoryIcon from '@mui/icons-material/History';
 import LogoutIcon from '@mui/icons-material/Logout';

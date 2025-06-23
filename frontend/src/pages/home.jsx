@@ -9,9 +9,7 @@ import { motion } from 'framer-motion';
 import HdIcon from '@mui/icons-material/Hd';
 import NetworkCheckIcon from '@mui/icons-material/NetworkCheck';
 import ScreenShareIcon from '@mui/icons-material/ScreenShare';
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import PhotoCameraBackIcon from '@mui/icons-material/PhotoCameraBack';
-import TranslateIcon from '@mui/icons-material/Translate';
 
 function HomeComponent() {
   const navigate = useNavigate();
