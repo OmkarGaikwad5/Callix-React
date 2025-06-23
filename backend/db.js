@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const mongoURL = process.env.MONGO_URL;
-// console.log(mongoURL);
 
 const connectDB = async () => {
     try {
