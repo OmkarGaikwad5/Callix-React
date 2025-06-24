@@ -685,7 +685,7 @@ export default function VideoMeetComponent() {
           )}
 
           {/* Button Controls */}
-          <div className="button-container-bar">
+<div className="button-container-bar">
   <IconButton onClick={handleVideo} style={{ color: "white" }}>
     {video ? <VideocamIcon /> : <VideocamOffIcon />}
   </IconButton>
@@ -724,6 +724,7 @@ export default function VideoMeetComponent() {
     </IconButton>
   </Badge>
 </div>
+
 
 
 

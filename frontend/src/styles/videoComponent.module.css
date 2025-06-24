@@ -102,22 +102,30 @@
 /* styles.css or your component's CSS file */
 
 .button-container-bar {
-  position: absolute;
-  bottom: 35px; /* ⬆️ Move up from the bottom of the screen */
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* 👈 Essential for responsiveness */
   justify-content: center;
   align-items: center;
   gap: 12px;
   padding: 12px 16px;
-  background-color: rgba(31, 41, 55, 0.85); /* Slightly darker backdrop */
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  z-index: 999;
-  max-width: 90vw;
+  background-color: rgba(31, 41, 55, 0.8); /* dark gray with opacity */
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  max-width: 95vw; /* 👈 Prevent overflow on small screens */
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
 }
+.button-container-bar .MuiIconButton-root {
+  background-color: #1f2937;
+  color: white;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.button-container-bar .MuiIconButton-root:hover {
+  background-color: #374151;
+}
+
 
 
 /* Ensure buttons don't get too small */
