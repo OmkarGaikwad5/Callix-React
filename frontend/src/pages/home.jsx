@@ -172,13 +172,9 @@ function HomeComponent() {
                   title: 'Screen Sharing',
                   desc: 'Share your entire screen or specific applications instantly with all meeting participants.',
                   icon: <ScreenShareIcon fontSize="large" sx={{ color: '#ff9800' }} />,
-                },
+                }
 
-                {
-                  title: 'Custom Backgrounds',
-                  desc: 'Personalize your video calls with custom backgrounds to keep your environment private or fun.',
-                  icon: <PhotoCameraBackIcon fontSize="large" sx={{ color: '#9c27b0' }} />,
-                },
+            
 
               ].map((item, index) => (
                 <motion.div
