@@ -10,12 +10,12 @@ import {
   Grid,
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import { useAlert } from '../contexts/AlertContext'; // ✅ Correct import
+import { useAlert } from '../contexts/AlertContext';
 
 export default function History() {
   const { getHistoryOfUser, clearHistoryOfUser } = useContext(AuthContext);
   const [meetings, setMeetings] = useState([]);
-  const { showAlert } = useAlert(); // ✅ Use alert hook
+  const { showAlert } = useAlert();
 
   useEffect(() => {
     const fetchHistory = async () => {
@@ -24,7 +24,7 @@ export default function History() {
         setMeetings(history);
       } catch (err) {
         console.error('Error fetching history:', err);
-        showAlert("Failed to load history.", "error"); // ✅ Optional alert
+        showAlert("Failed to load history.", "error");
       }
     };
 
@@ -32,13 +32,15 @@ export default function History() {
   }, []);
 
   const handleClearHistory = async () => {
+    if (meetings.length === 0) return; // Prevent action if no history
+
     try {
       await clearHistoryOfUser();
       setMeetings([]);
-      showAlert("Meeting history cleared successfully!", "success"); // ✅ Alert on success
+      showAlert("Meeting history cleared successfully!", "success");
     } catch (err) {
       console.error('Error clearing history:', err);
-      showAlert("Failed to clear history.", "error"); // ✅ Alert on error
+      showAlert("Failed to clear history.", "error");
     }
   };
 
@@ -67,21 +69,29 @@ export default function History() {
         Your Call History
       </Typography>
 
+      {/* Always show button, but disable when empty */}
       <Box sx={{ display: 'flex', justifyContent: 'center', mb: 3 }}>
         <Tooltip title="Clear all history">
-          <IconButton
-            onClick={handleClearHistory}
-            sx={{
-              backgroundColor: '#ef4444',
-              color: 'white',
-              '&:hover': { backgroundColor: '#dc2626' },
-              borderRadius: 2,
-              paddingX: 2,
-              paddingY: 1,
-            }}
-          >
-            Clear History
-          </IconButton>
+          <span>
+            <IconButton
+              onClick={handleClearHistory}
+              disabled={meetings.length === 0}
+              sx={{
+                backgroundColor: meetings.length === 0 ? '#fca5a5' : '#ef4444',
+                color: 'white',
+                '&:hover': {
+                  backgroundColor: meetings.length === 0 ? '#fca5a5' : '#dc2626',
+                },
+                borderRadius: 2,
+                paddingX: 2,
+                paddingY: 1,
+                opacity: meetings.length === 0 ? 0.6 : 1,
+                pointerEvents: meetings.length === 0 ? 'none' : 'auto',
+              }}
+            >
+              Clear History
+            </IconButton>
+          </span>
         </Tooltip>
       </Box>
 
