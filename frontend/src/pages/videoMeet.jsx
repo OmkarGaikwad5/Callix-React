@@ -686,44 +686,45 @@ export default function VideoMeetComponent() {
 
           {/* Button Controls */}
           <div className="button-container-bar">
-            <IconButton onClick={handleVideo} style={{ color: "white" }}>
-              {video ? <VideocamIcon /> : <VideocamOffIcon />}
-            </IconButton>
+  <IconButton onClick={handleVideo} style={{ color: "white" }}>
+    {video ? <VideocamIcon /> : <VideocamOffIcon />}
+  </IconButton>
 
-            <Tooltip title="Copy Meeting Link">
-              <IconButton onClick={handleShareLink} style={{ color: "white" }}>
-                <ContentCopyIcon />
-              </IconButton>
-            </Tooltip>
+  <Tooltip title="Copy Meeting Link">
+    <IconButton onClick={handleShareLink} style={{ color: "white" }}>
+      <ContentCopyIcon />
+    </IconButton>
+  </Tooltip>
 
-            <Snackbar
-              open={copySuccess}
-              autoHideDuration={3000}
-              onClose={() => setCopySuccess(false)}
-              message="Meeting link copied to clipboard!"
-              anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-            />
+  <Snackbar
+    open={copySuccess}
+    autoHideDuration={3000}
+    onClose={() => setCopySuccess(false)}
+    message="Meeting link copied to clipboard!"
+    anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+  />
 
-            <IconButton onClick={handleEndCall} style={{ color: "red" }}>
-              <CallEndIcon />
-            </IconButton>
+  <IconButton onClick={handleEndCall} style={{ color: "red" }}>
+    <CallEndIcon />
+  </IconButton>
 
-            <IconButton onClick={handleAudio} style={{ color: "white" }}>
-              {audio ? <MicIcon /> : <MicOffIcon />}
-            </IconButton>
+  <IconButton onClick={handleAudio} style={{ color: "white" }}>
+    {audio ? <MicIcon /> : <MicOffIcon />}
+  </IconButton>
 
-            {screenAvailable && (
-              <IconButton onClick={handleScreen} style={{ color: "white" }}>
-                {screen ? <ScreenShareIcon /> : <StopScreenShareIcon />}
-              </IconButton>
-            )}
+  {screenAvailable && (
+    <IconButton onClick={handleScreen} style={{ color: "white" }}>
+      {screen ? <ScreenShareIcon /> : <StopScreenShareIcon />}
+    </IconButton>
+  )}
 
-            <Badge badgeContent={newMessages} max={999} color="error">
-              <IconButton onClick={() => setModal(!showModal)} style={{ color: "white" }}>
-                <ChatIcon />
-              </IconButton>
-            </Badge>
-          </div>
+  <Badge badgeContent={newMessages} max={999} color="error">
+    <IconButton onClick={() => setModal(!showModal)} style={{ color: "white" }}>
+      <ChatIcon />
+    </IconButton>
+  </Badge>
+</div>
+
 
 
           {/* Local User Video (Large if >5 participants) */}

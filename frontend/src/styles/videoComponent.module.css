@@ -99,6 +99,46 @@
   margin-top: auto;
 }
 
+/* styles.css or your component's CSS file */
+
+.button-container-bar {
+  position: absolute;
+  bottom: 35px; /* ⬆️ Move up from the bottom of the screen */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background-color: rgba(31, 41, 55, 0.85); /* Slightly darker backdrop */
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  max-width: 90vw;
+}
+
+
+/* Ensure buttons don't get too small */
+.button-container-bar .MuiIconButton-root {
+  flex-shrink: 0;
+}
+
+/* Optional: center on mobile */
+@media (max-width: 600px) {
+  .button-container-bar {
+    justify-content: space-evenly;
+    gap: 10px;
+    padding: 10px;
+  }
+}
+@media (max-height: 700px) {
+  .button-container-bar {
+    bottom: 40px; /* ⬆️ Push it higher if height is low */
+  }
+}
+
 /* Bottom control bar */
 .buttonContainers {
   position: fixed;
