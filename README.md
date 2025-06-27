@@ -81,8 +81,8 @@ cd callix
 ```sh
 cd server
 npm install
-# Create `.env` and add your values
-npm run dev
+# Create .env and add your values
+node app.js/server.js
 ```
 
 3️⃣ Setup Frontend
